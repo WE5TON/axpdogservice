@@ -1,0 +1,6 @@
+backup.zip
+logs/
+assets/php/
+*.lnk
+*.db
+*.log
