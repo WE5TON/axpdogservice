@@ -3241,16 +3241,21 @@ select:focus {
 }
 .priceing-plan-tabs .tab-button-column .tab-buttons {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: stretch;
     overflow: hidden;
     z-index: 1;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(39, 65, 86, 0.08);
 }
 .priceing-plan-tabs .tab-button-column .tab-buttons li {
     position: relative;
-    display: inline-block;
-    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #f4f2ef;
-    width: 130px;
+    min-width: 150px;
+    padding: 0 28px;
     color: #274156;
     font-size: 16px;
     line-height: 60px;
@@ -3274,6 +3279,25 @@ select:focus {
 .priceing-plan-tabs .tab-button-column .tab-buttons li.tab-btn.active-btn{
 	color:#ffffff;
     background: #f9be4f;
+}
+
+@media only screen and (max-width: 767px) {
+    .priceing-plan-tabs .tab-button-column{
+        width: 100%;
+        position: relative;
+        top: 0;
+        right: auto;
+        margin: 0 auto 34px;
+    }
+    .priceing-plan-tabs .tab-button-column .tab-buttons{
+        width: 100%;
+    }
+    .priceing-plan-tabs .tab-button-column .tab-buttons li{
+        min-width: 0;
+        flex: 1 1 0;
+        padding: 0 12px;
+        font-size: 14px;
+    }
 }
 
 
@@ -3303,26 +3327,59 @@ select:focus {
 
 .priceing-plan-tab-content{
     position: relative;
-    display: block;
+    display: block;    
+}
+.priceing-plan-tab-content .row{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.priceing-plan-tab-content .row > [class*="col-"]{
+    display: flex;
+    flex: 0 0 auto;
+    max-width: none;
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
 }
 .single-priceing-plan-box{
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 57px 40px 60px;
     background: #f4f2ef;
     border-radius: 20px;
-    max-width: 400px;
+    max-width: none;
     width: 100%;
-    margin: 0 auto 30px;
+    margin: 0;
+    min-height: 100%;
+    box-shadow: 0 18px 40px rgba(39, 65, 86, 0.08);
+}
+
+@media only screen and (max-width: 991px) {
+    .priceing-plan-tab-content .row{
+        grid-template-columns: 1fr;
+    }
 }
 
 
 .single-priceing-plan-box .top{
-    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
 .single-priceing-plan-box .top .left{
     position: relative;
     display: block;
+    flex: 1 1 auto;
+}
+.single-priceing-plan-box .top .left.pull-left,
+.single-priceing-plan-box .top .right.pull-right{
+    float: none;
 }
 .single-priceing-plan-box .top .left p{
     font-size: 16px;
@@ -3338,7 +3395,11 @@ select:focus {
 .single-priceing-plan-box .top .right {
     position: relative;
     display: block;
-    top: 0px;
+    flex: 0 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .single-priceing-plan-box .top .right p{
@@ -3367,13 +3428,16 @@ select:focus {
 .single-priceing-plan-box ul{
     position: relative;
     display: block;
+    flex: 1 1 auto;
     overflow: hidden;
     padding-top: 26px;
     padding-bottom: 32px;
 }
 .single-priceing-plan-box ul li{
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: #274156;
     font-size: 18px;
     line-height: 40px;
@@ -3385,8 +3449,10 @@ select:focus {
 
 .single-priceing-plan-box ul li span{
     position: relative;
-    display: block;
-    float: right;
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-left: 12px;
+    float: none;
 }
 .single-priceing-plan-box ul li span.deactive:before{
     color: #bcbbb9;    
@@ -3395,8 +3461,14 @@ select:focus {
 .single-priceing-plan-box .button{
     position: relative;
     display: block;
+    margin-top: auto;
+    padding-top: 4px;
 }
 .single-priceing-plan-box .button a{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     color: #274156;
     padding: 0 40px; 
     line-height: 60px;
@@ -3411,7 +3483,6 @@ select:focus {
 .single-priceing-plan-box .button a i {
     position: relative;
     display: inline-block;
-    float: left;
     font-size: 16px;
     line-height: 60px;
     padding-right: 10px;
